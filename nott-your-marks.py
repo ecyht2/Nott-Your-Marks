@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 import argparse
 import csv, _csv
+import _io
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Calculates your average marks')
+    parser.add_argument('-f', '--file', type=argparse.FileType('r'),
+                        help="Used the csv file provided to calculate marks instead")
+
     return parser.parse_args()
 
 def input_codes(credit) -> list:
@@ -30,6 +34,19 @@ def input_marks(codes: list) -> dict:
         marks[code] = int(mark)
     return marks
 
+def get_marks_csv(csvFile: _io.TextIOWrapper) -> dict:
+    reader: _csv.reader = csv.reader(csvFile)
+    marks: dict = dict()
+
+    for data in reader:
+        if not data[0] in marks:
+            marks[data[0]] = int(data[1])
+        else:
+            raise ValueError("Duplicate module code found! Please check your csv file.")
+    csvFile.close()
+
+    return marks
+
 def calculate_marks(marks: dict, credit: dict) -> float:
     # Calculating total marks
     totalCredits: int = 0
@@ -52,10 +69,14 @@ def main():
         for data in reader:
             credit[data["Code"]] = int(data["Credit"])
 
-    # Getting Codes
-    codes: list = input_codes(credit)
-    # Getting Marks
-    marks: dict = input_marks(codes)
+    # If filed is passed
+    if not args.file:
+        # Getting Codes
+        codes: list = input_codes(credit)
+        # Getting Marks
+        marks: dict = input_marks(codes)
+    else:
+        marks = get_marks_csv(args.file)
 
     totalMarks: float = calculate_marks(marks, credit)
     print("Your Marks:", totalMarks)
