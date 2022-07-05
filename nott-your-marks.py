@@ -76,8 +76,8 @@ def main():
 
     # Loading Credits
     credit = {}
-    with open('credits.csv', 'r', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
+    with open('credits.csv', 'r', encoding='utf-8') as csv_file:
+        reader = csv.DictReader(csv_file)
         for data in reader:
             credit[data["Code"]] = int(data["Credit"])
 
