@@ -4,9 +4,13 @@ import csv, _csv
 import _io
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description='Calculates your average marks')
+    parser = argparse.ArgumentParser(description='Calculates your average marks',
+                                     formatter_class=argparse.RawDescriptionHelpFormatter,
+                                     epilog='''
+Note: Module Numbers needs to have a space between the number and the course.
+Example: EEEE 1028''')
     parser.add_argument('-f', '--file', type=argparse.FileType('r'),
-                        help="Used the csv file provided to calculate marks instead")
+                        help="Use the csv file provided to calculate marks instead")
 
     return parser.parse_args()
 
