@@ -2,6 +2,9 @@
 Calculates the average marks for your modules
 
 # Installation
+``` sh
+git clone https://github.com/ecyht2/Nott-Your-Marks.git
+```
 
 # Usage
 **Note:** When inputing module codes the **space** must be there between your course and the number.
