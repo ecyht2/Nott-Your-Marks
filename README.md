@@ -4,6 +4,7 @@ Calculates the average marks for your modules
 # Installation
 
 # Usage
+**Note:** When inputing module codes the **space** must be there between your course and the number.
 ## Command Line
 ``` sh
 python3 nott-your-marks.py
@@ -27,8 +28,6 @@ EEEE 1029,87
 EEEE 1030,92
 EEEE 1043,71
 ```
-
-**Note:** When inputing module codes the **space** must be there between your course and the number.
 
 # TODO
   * [ ] Change the credits into a database using sqlite3
