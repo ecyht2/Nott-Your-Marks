@@ -53,7 +53,7 @@ def get_marks_csv(csv_file: _io.TextIOWrapper) -> dict:
             marks[data[0]] = int(data[1])
         else:
             raise ValueError("Duplicate module code found! Please check your csv file.")
-    csvFile.close()
+    csv_file.close()
 
     return marks
 
