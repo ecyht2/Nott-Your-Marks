@@ -37,4 +37,5 @@ EEEE 1043,71
   * [x] Enable csv file reading support
   * [ ] Make a GUI
   * [ ] Add feature to list course modules
-  * [ ] Add support for inputting data using argv  
+  * [ ] Add support for inputting data using argv
+  * [ ] Scrape course info from [Curriculum Catalogue](https://campus.nottingham.ac.uk/psc/csprd_pub/EMPLOYEE/SA/c/UN_PROG_AND_MOD_EXTRACT.UN_PAM_CRSE_EXTRCT.GBL "Curriculum Catalogue")
